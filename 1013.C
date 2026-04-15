@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Gustavo Bernardes dos Santos
+Linguagem   : C
+Plataforma  : https://judge.beecrowd.com/pt/search
+Exercício   : 1013
+Data        : 15/04/2026
+Objetivo    : mostrar maior de 3 números 
+Aprendizado : utilizar outra biblioteca e abs
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 
