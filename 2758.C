@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Gustavo Bernardes dos Santos
+Linguagem   : C
+Plataforma  : https://judge.beecrowd.com/pt/search
+Exercício   : 2758
+Data        : 15/04/2026
+Objetivo    : Mostrar o mesmo número de diferentes formas
+Aprendizado : Uso de %.1f, %.2f, %.3f, %.3E e %.0f
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 
 int main()
