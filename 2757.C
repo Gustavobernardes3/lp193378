@@ -1,9 +1,19 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Gustavo Bernardes dos Santos
+Linguagem   : C
+Plataforma  : https://judge.beecrowd.com/pt/search
+Exercício   : 2757
+Data        : 15/04/2026
+Objetivo    : Mostrar o mesmo número de diferentes formas
+Aprendizado : Uso de %10d, %010d, e %-10d
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 
 int main()
 {
-  int A, B, C;
-  scanf("%d %d %d", &A, &B, &C);
+   int A, B, C;
+   scanf("%d %d %d", &A, &B, &C);
  
  if(A < -10000 || A > 10000) {
      return 0;
