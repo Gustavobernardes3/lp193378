@@ -33,7 +33,7 @@ int main() {
             }
         }
 
-        if(encaixa)
+        if(encaixa == 1)
             printf("encaixa\n");
         else
             printf("nao encaixa\n");
