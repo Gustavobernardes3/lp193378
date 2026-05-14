@@ -6,7 +6,7 @@ Plataforma  : https://judge.beecrowd.com/pt/search
 Exercício   : https://judge.beecrowd.com/pt/problems/view/1534
 Data        : 13/05/2026
 Objetivo    : fazer matriz com elementos das diagonais 1 e 2 
-Aprendizado : fazer uma matriz
+Aprendizado : fazer uma matriz sem o operador[]
 -------------------------------------------------------------------------- */
 #include <stdio.h>
  
