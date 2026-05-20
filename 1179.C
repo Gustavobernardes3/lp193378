@@ -11,44 +11,43 @@ Aprendizado : manipulação de vetores
 #include <stdio.h>
 
 int main() {
-    int par[5], impar[5];
-    int n, i, f;
-    int qtdpar = 0;
-    int qtdimpar = 0;
 
-    for(i = 0; i < 15; i++) {
-        scanf("%d", &n);
+    int i, j, x, par[5], impar[5], f = 0, l = 0;
 
-        if(n % 2 == 0) {
-            par[qtdpar] = n;
-            qtdpar++;
-            
-            if(qtdpar == 5) {
-                for(f = 0; f < 5; f++) {
-                    printf("par[%d] = %d\n", f, par[f]);
+    for (i = 0; i < 15; i++) {
+        scanf("%d", &x);
+
+        if (x % 2 == 0) {
+            par[l] = x;
+            l++;
+
+            if (l == 5) {
+                for (j = 0; j < 5; j++) {
+                    printf("par[%d] = %d\n", j, par[j]);
                 }
-                qtdpar = 0;
+                l = 0;
             }
-        } 
+        }
+
         else {
-            impar[qtdimpar] = n;
-            qtdimpar++;
-            
-            if(qtdimpar == 5) {
-                for(f = 0; f < 5; f++) {
-                    printf("impar[%d] = %d\n", f, impar[f]);
+            impar[f] = x;
+            f++;
+
+            if (f == 5) {
+                for (j = 0; j < 5; j++) {
+                    printf("impar[%d] = %d\n", j, impar[j]);
                 }
-                qtdimpar = 0;
+                f = 0;
             }
         }
     }
 
-    for(f = 0; f < qtdimpar; f++) {
-        printf("impar[%d] = %d\n", f, impar[f]);
+    for(j = 0; j < f; j++) {
+        printf("impar[%d] = %d\n", j, impar[j]);
     }
-    
-    for(f = 0; f < qtdpar; f++) {
-        printf("par[%d] = %d\n", f, par[f]);
+
+    for(j = 0; j < l; j++) {
+        printf("par[%d] = %d\n", j, par[j]);
     }
 
     return 0;
