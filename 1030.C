@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Gustavo Bernardes dos Santos
+Linguagem   : C
+Plataforma  : https://judge.beecrowd.com/pt/search
+Exercício   : https://judge.beecrowd.com/pt/problems/view/1030
+Data        : 10/06/2026
+Objetivo    : resolver problema de josephus
+Aprendizado : relizar permutação circular
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 
 int josephus(int n, int k) {
