@@ -26,7 +26,7 @@ int main() {
     for(i = 0; i < n; i++){
         scanf("%d", &x);
         calls = 0;
-        soma = fib(x);;
+        soma = fib(x);
         printf("fib(%d) = %d calls = %d\n", x, calls - 1, soma);
     }
 
