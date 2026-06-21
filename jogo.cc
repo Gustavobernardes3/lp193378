@@ -9,9 +9,9 @@ int valido(int a[9]) {
 	for(int i = 0; i < 9; i++) {
 		int v = a[i];
 
-		if(v == 0)
+		if(v == 0){
 			continue;
-
+		}
 		if(v < 1 || v > 9 || visto[v]) {
 			return 0;
 		}
@@ -50,15 +50,15 @@ int validar(int x[9][9], int linha, int coluna) {
         }
     }
 
-    if(!valido(bloco))
+    if(!valido(bloco)){
         return 0;
-
+	}
     return 1;
 }
 
 
 int main(int argc, char *argv[]) {
-	int n, linha, coluna, valor, ok = 0, legal = 0;
+	int linha, coluna, valor, ok = 0, legal = 0;
 
 	 if(argc >= 2) {
         FILE *arq = fopen(argv[1], "r");
