@@ -28,16 +28,16 @@ int validar(int x[9][9], int linha, int coluna) {
     for(int j = 0; j < 9; j++) {
         linha2[j] = x[linha][j];
     }
-    if(!valido(linha2))
+    if(!valido(linha2)){
         return 0;
-
+	}
     int coluna2[9];
     for(int i = 0; i < 9; i++) {
         coluna2[i] = x[i][coluna];
     }
-    if(!valido(coluna2))
+    if(!valido(coluna2)){
         return 0;
-
+	}
     int bloco[9];
     int r = 0;
 
