@@ -1,4 +1,6 @@
+#include <iostream>
 #include <stdio.h>
+using namespace std;
 int matriz[9][9];
 
 int valido(int a[9]) {
@@ -22,104 +24,36 @@ int valido(int a[9]) {
 
 int validar(int x[9][9], int linha, int coluna) {
 
+    int linha2[9];
+    for(int j = 0; j < 9; j++) {
+        linha2[j] = x[linha][j];
+    }
+    if(!valido(linha2))
+        return 0;
 
-	int ok = 1;
-	int linha2[9];
-	for(int j = 0; j < 9; j++) {
-		linha2[j] = x[linha][j];
-	}
-	if (!valido(linha2)) ok = 0;
+    int coluna2[9];
+    for(int i = 0; i < 9; i++) {
+        coluna2[i] = x[i][coluna];
+    }
+    if(!valido(coluna2))
+        return 0;
 
+    int bloco[9];
+    int r = 0;
 
-	int coluna2[9];
-	for(int i = 0; i < 9; i++) {
-		coluna2[i] = x[i][coluna];
-	}
-	if (!valido(coluna2)) ok = 0;
+    int inicio_linha = (linha / 3) * 3;
+    int inicio_coluna = (coluna / 3) * 3;
 
+    for(int i = inicio_linha; i < inicio_linha + 3; i++) {
+        for(int j = inicio_coluna; j < inicio_coluna + 3; j++) {
+            bloco[r++] = x[i][j];
+        }
+    }
 
-	if(linha <= 2 && coluna <= 2) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l][k];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha <= 2 && coluna >= 2 && coluna <= 5) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l][k + 3];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha <= 2 && coluna > 5 && coluna <= 8) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l][k + 6];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 2 && linha <= 5 && coluna <= 2) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 3][k];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 2 && linha <= 5 && coluna > 2 && coluna <= 5) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 3][k + 3];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 2 && linha <= 5 && coluna > 5 && coluna <= 8) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 3][k + 6];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 5 && linha <= 8 && coluna <= 2) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 6][k];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 5 && linha <= 8 && coluna > 2 && coluna <= 5) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 6][k + 3];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-	else if(linha > 5 && linha <= 8 && coluna > 5 && coluna <= 8) {
-		int bloco[9], r = 0;
-		for(int l = 0; l < 3; l++) {
-			for(int k = 0; k < 3; k++) {
-				bloco[r++] = x[l + 6][k + 6];
-			}
-		}
-		if (!valido(bloco)) ok = 0;
-	}
-    return ok;
+    if(!valido(bloco))
+        return 0;
+
+    return 1;
 }
 
 
@@ -129,7 +63,7 @@ int main(int argc, char *argv[]) {
 	 if(argc >= 2) {
         FILE *arq = fopen(argv[1], "r");
         if(arq == NULL) {
-            printf("Erro ao abrir o arquivo.\n");
+            cout << "Erro ao abrir o arquivo.\n";
             return 1;
         }
         for(int i = 0; i < 9; i++) {
@@ -140,37 +74,36 @@ int main(int argc, char *argv[]) {
         fclose(arq);
     }
     else {
-        printf("Digite a matriz inicial:\n");
+        cout << "Digite a matriz inicial:\n";
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 9; j++) {
-                scanf("%d", &matriz[i][j]);
+                cin >> matriz[i][j];
             }
         }
     }
 
 	while(ok == 0) {
-        printf("     S U D O K U\n");
+        cout << "     S U D O K U\n";
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				printf("%d ", matriz[i][j]);
+				cout << matriz[i][j] << ' ';
                 if(j == 2 || j == 5){
-                    printf("| ");
+                    cout << "| ";
                 }
 			}
-			printf("\n");
+			cout << '\n';
             if(i == 2 || i == 5){
-                printf("_____________________\n");
-                printf("\n");
+                cout << "_____________________\n\n";
             }
 		}
-        printf("\n");
-		printf("Digite a linha: ");
-		scanf("%d", &linha);
-		printf("Digite a coluna: ");
-		scanf("%d", &coluna);
-		printf("Digite o valor: ");
-		scanf("%d", &valor);
-        printf("\n");
+        cout << '\n';
+        cout << "Digite a linha: ";
+        cin >> linha;
+		cout << "Digite a coluna: ";
+        cin >> coluna;
+		cout << "Digite o valor: ";
+        cin >> valor;
+        cout << '\n';
 		linha--;
 		coluna--;
 		matriz[linha][coluna] = valor;
@@ -221,25 +154,24 @@ int main(int argc, char *argv[]) {
 	        ok = 1;
         }
         else if(!legal) {
-	        printf("  TENTE NOVAMENTE :(\n");
+	        cout << "  TENTE NOVAMENTE :(\n";
 	        matriz[linha][coluna] = 0;
         }   
 
 	}
-     printf("     S U D O K U\n");
+    cout << "     S U D O K U\n";
     for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				printf("%d ", matriz[i][j]);
+				cout << matriz[i][j] << ' ';
                 if(j == 2 || j == 5){
-                    printf("| ");
+                    cout << "| ";
                 }
 			}
-			printf("\n");
+			cout << '\n';
             if(i == 2 || i == 5){
-                printf("_____________________\n");
-                printf("\n");
+                cout << "_____________________\n\n";
             }
 		}
-	printf("   Y O U  W I N!");
+	cout << "   Y O U  W I N!";
     return 0;
 }
