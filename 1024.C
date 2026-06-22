@@ -11,46 +11,37 @@ Aprendizado : manipulação de string
 #include <stdio.h>
 #include <string.h>
 
-void inverter(char *str, int tam) {
-    int i, j;
-    char temp;
-    for (i = 0, j = tam - 1; i < j; i++, j--) {
-        temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-    }
-}
-
-int main() {
-    int n, i, j, tam;
-    char str[1002];
-
-    if (scanf("%d", &n) != 1) return 0;
+int main(){
+    char name[1005], invert[1005];
+    int n, i, j, f;
+    scanf("%d", &n);
     getchar();
-
-    for (i = 0; i < n; i++) {
-        if (fgets(str, sizeof(str), stdin) == NULL) break;
-
-        tam = strlen(str);
-        if (tam > 0 && str[tam - 1] == '\n') {
-            str[tam - 1] = '\0';
-            tam--;
+    for(i = 0; i < n; i++){
+        j = 0;
+        fgets(name, 1005, stdin);
+        name[strcspn(name, "\n")] = '\0';
+        while(name[j] != '\0'){
+            if(name[j] >= 'a' && name[j] <= 'z' ||  name[j] >= 'A' && name[j] <= 'Z'){
+                name[j] += 3;
+            }  
+            j++;     
         }
-
-        for (j = 0; j < tam; j++) {
-            if ((str[j] >= 'A' && str[j] <= 'Z') || (str[j] >= 'a' && str[j] <= 'z')) {
-                str[j] += 3;
-            }
+        j = 0;
+        int tam = strlen(name);
+        f = tam - 1;
+        while(name[j] != '\0'){
+            invert[f] = name[j];
+            j++;
+            f--;
         }
+        invert[tam] = '\0'; 
 
-        inverter(str, tam);
-
-        for (j = tam / 2; j < tam; j++) {
-            str[j] -= 1;
+        for( j = tam / 2; j < tam; j++){
+            invert[j] -= 1;
         }
-
-        printf("%s\n", str);
+        printf("%s\n", invert);
     }
 
     return 0;
 }
+
