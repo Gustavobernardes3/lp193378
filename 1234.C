@@ -13,27 +13,30 @@ Aprendizado : uso  de strings
 
 int main() {
 
-    int i=0, maiscula = 1;
-    char palavra[100];
+    char palavra[1000];
 
-    fgets(palavra, 100, stdin);
+    while (fgets(palavra, sizeof(palavra), stdin) != NULL) {
 
-    while (palavra[i] != '\0') {
-        if (palavra[i] == ' ' || palavra[i] == '\n') {
+        int i = 0, maiuscula = 1;
+
+        while (palavra[i] != '\0') {
+            if (palavra[i] == ' ') {
+                i++;
+                continue;
+            }
+
+            if (maiuscula) {
+                palavra[i] = toupper(palavra[i]);
+            } else {
+                palavra[i] = tolower(palavra[i]);
+            }
+
+            maiuscula = !maiuscula;
             i++;
-            continue;
         }
-        if (maiscula == 1) {
-            palavra[i] = toupper(palavra[i]);
-        }
-        else {
-            palavra[i] = tolower(palavra[i]);
-        }
-        maiscula = !maiscula;
-        i++;
-    }
 
-    printf("%s", palavra);
+        printf("%s", palavra);
+    }
 
     return 0;
 }
