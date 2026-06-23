@@ -3,7 +3,7 @@ Disciplina  : Lógica de Programação, turma IB, 2026S1
 Nome        : Gustavo Bernardes dos Santos
 Linguagem   : C
 Plataforma  : https://judge.beecrowd.com/pt/search
-Exercício   : https://judge.beecrowd.com/pt/problems/view/1031
+Exercício   : https://judge.beecrowd.com/pt/problems/view/1435
 Data        : 10/06/2026
 Objetivo    : fazer matriz quadrada de ordem n
 Aprendizado : manipulação de matriz
