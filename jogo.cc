@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Gustavo Bernardes dos Santos
+Linguagem   : C
+Plataforma  : https://judge.beecrowd.com/pt/search
+Exercício   : jogo
+Data        : 10/06/2026
+Objetivo    : fazer jogo sudoku
+Aprendizado : funções de validação para sudoku
+-------------------------------------------------------------------------- */
 #include <iostream>
 #include <stdio.h>
 using namespace std;
