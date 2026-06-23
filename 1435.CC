@@ -16,23 +16,23 @@ int main() {
     while (scanf("%d", &n) == 1 && n != 0) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                int dist_cima = i;
-                int dist_baixo = n - 1 - i;
-                int dist_esquerda = j;
-                int dist_direita = n - 1 - j;
+                int cima = i;
+                int baixo = n - 1 - i;
+                int esq = j;
+                int dir = n - 1 - j;
 
-                int menor = dist_cima;
-                if (dist_baixo < menor) menor = dist_baixo;
-                if (dist_esquerda < menor) menor = dist_esquerda;
-                if (dist_direita < menor) menor = dist_direita;
+                int menor = cima;
+                if (baixo < menor) menor = baixo;
+                if (esq < menor) menor = esq;
+                if (dir < menor) menor = dir;
 
-                int valor = menor + 1;
+                int num = menor + 1;
 
                 if (j > 0) {
                     printf(" ");
                 }
 
-                printf("%3d", valor);
+                printf("%3d", num);
             }
             printf("\n");
         }
