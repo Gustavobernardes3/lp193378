@@ -8,7 +8,7 @@ Data        : 28/04/2026
 Objetivo    : fazer tabuada de um numero entre 2 e 1000
 Aprendizado : fazer tabuada
 -------------------------------------------------------------------------- */
-/#include <stdio.h>
+#include <stdio.h>
  
 int main() {
  
